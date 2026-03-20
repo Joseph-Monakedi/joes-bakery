@@ -1,0 +1,22 @@
+---
+const { name } = Astro.props
+const UNSPLASH_API_KEY = import.meta.env.UNSPLASH_API_KEY;
+async function getImageURL (apiKey: string,name: string) {
+try {
+    const response = await fetch(`https://api.unsplash.com/photos/random?query=${name}&client_id=${apiKey}&orientation=portrait`);
+const data = await response.json()
+        if (data && data.urls && data.urls.full) {
+            return data.urls.full.toString();
+        } else {
+          throw new Error("Invalid response format from Unsplash API")
+        }
+} catch (error) {
+        console.error("Error fetching Unsplash image:", error)
+      }
+}
+const url = await getImageURL(UNSPLASH_API_KEY, name)
+---
+<img 
+alt={name}
+src={url}
+class="h-full object-cover" />
