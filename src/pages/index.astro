@@ -1,5 +1,12 @@
 ---
 import "../styles/global.css";
+
+const featuredItems = [
+  { name: "Sourdough Batard", price: "R20", desc: "48-hour fermented classic." },
+  { name: "Almond Croissant", price: "R35", desc: "Twice-baked with frangipane." },
+  { name: "Sea Salt Brownie", price: "R15", desc: "70% dark chocolate chunks." },
+];
+
 ---
 
 <html lang="en">
@@ -33,5 +40,31 @@ import "../styles/global.css";
       >
       </div>
     </header>
+	<section id="menu" class="py-20 max-w-6xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h3 class="text-3xl font-serif italic">Today's Specials</h3>
+          <p class="text-stone-500">Straight from the oven</p>
+        </div>
+        <a href="#" class="text-amber-800 border-b border-amber-800 pb-1">View Full Menu</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        {featuredItems.map(item => (
+          <div class="group cursor-pointer">
+            <div class="aspect-square bg-stone-200 mb-4 overflow-hidden rounded-lg">
+               <div class="w-full h-full bg-stone-300 group-hover:scale-105 transition duration-500">
+				<img alt={item.name} src={`https://www.google.com/search?q=https://source.unsplash.com/featured/%3Fbakery,${item.name}`}/>
+			   </div>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-xl font-medium">{item.name}</h4>
+              <span class="text-stone-500">{item.price}</span>
+            </div>
+            <p class="text-stone-600 mt-2 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   </body>
 </html>
