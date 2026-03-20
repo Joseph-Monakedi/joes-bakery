@@ -3,15 +3,35 @@ import "../styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class="bg-amber-400">Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Joes Bakery</title>
+  </head>
+  <body class="bg-stone-100 textstone-900 font-sans h-[10dvh]">
+    <nav class="p-6 bg-amber-400 sticky">
+      <h1 class="font-bold text-2xl">Joes Bakery</h1>
+    </nav>
+    <header
+      class="relative h-[90dvh] flex items-center justify-center bg-stone-200 overflow-hidden"
+    >
+      <div class="z-10 text-center px-4">
+        <h2 class="text-5xl md:text-7xl font-serif mb-4">
+          Warmth in every crumb.
+        </h2>
+        <p class="text-lg md:text-xl text-stone-800 max-w-2xl mx-auto">
+          Handcrafted breads and pastries baked fresh every single morning.
+        </p>
+      </div>
+      <div
+        class="absolute inset-0 opacity-40
+			bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=2000')]
+			bg-cover bg-center"
+      >
+      </div>
+    </header>
+  </body>
 </html>
